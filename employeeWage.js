@@ -5,6 +5,7 @@ const FULL_TIME_HOURS = 8;
 const WAGE_PER_HOUR = 20;
 const IS_ABSENT = 0;
 const MAX_WORKING_DAYS = 20;
+const MAX_WORKING_HOURS = 100;
 
 function getWorkingHours(empCheck) {
     switch (empCheck) {
@@ -18,9 +19,10 @@ function getWorkingHours(empCheck) {
 }
 
 let empHrs = 0;
-for (let day = 0; day < MAX_WORKING_DAYS; day++) {
+while (empHrs <= MAX_WORKING_HOURS && day < MAX_WORKING_DAYS) {
     let empCheck = Math.floor(Math.random() * 10) % 3;
     empHrs += getWorkingHours(empCheck);
+    day++;
 }
 
 let empWage = empHrs * WAGE_PER_HOUR;
